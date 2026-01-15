@@ -1,0 +1,31 @@
+# Copy this file to terraform.tfvars and fill in the values
+
+# AWS Configuration
+aws_region  = "ap-south-1"
+aws_profile = "client-account"  # Profile configured for account 742336692415
+
+# Project Configuration
+project_name = "multiplex"
+environment  = "production"
+
+# Networking
+vpc_cidr           = "10.0.0.0/16"
+availability_zones = ["ap-south-1a", "ap-south-1b"]
+
+# Database Configuration
+db_instance_class = "db.t4g.medium"
+db_engine_version = "17.4"
+db_name           = "multiplex"
+db_username       = "your_db_username"  # CHANGE THIS
+db_password       = "your_db_password"  # CHANGE THIS - use a strong password
+
+# ECS Configuration
+ecs_cpu        = 256
+ecs_memory     = 512
+container_port = 8080
+
+# Domain
+domain_name = "multiplex-product-api.winitsoftware.com"
+
+# Lambda Schedule (UTC - this runs at 9:30 PM UTC daily)
+lambda_schedule = "cron(30 21 * * ? *)"
